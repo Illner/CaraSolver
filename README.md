@@ -5,7 +5,7 @@ A #SAT solver.
 **Supported OS**: Linux, macOS (Intel and Apple Silicon), Windows
 
 > [!NOTE]
-> A knowledge compiler that uses the same core to compile CNF formulae into wDNNF, pwDNNF, nwDNNF and decision-DNNF circuits can be found <a href="https://github.com/Illner/BellaCompiler" target="_blank">here</a>.
+> A knowledge compiler that uses the same core to compile CNF formulae into wDNNF, pwDNNF, nwDNNF and (smooth) decision-DNNF circuits can be found <a href="https://github.com/Illner/BellaCompiler" target="_blank">here</a>.
 
 ## Running Cara
 
@@ -17,7 +17,7 @@ To run the #SAT solver:
 
 ```console
 ./Cara < -ph | -ka | -cd > -i input_file -nsm integer (min: 0, max: 10) 
-       [ -n | -ndc | -nsc ]
+       [ -mmbf positive_integer (default: 1) ] [ -n | -ndc | -nsc ]
 ```
 
 > [!TIP]
@@ -27,19 +27,20 @@ To run the #SAT solver:
 ### Configurations
 
 Partitioning hypergraph types: <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-ph** - PaToH (Linux, macOS), hMETIS (Windows) <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-ka** - KaHyPar (Linux, macOS, Windows) <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-cd** - Cara (Linux, macOS)
+&nbsp;&nbsp;&nbsp;&nbsp; **-ph** — PaToH (Linux, macOS), hMETIS (Windows) <br>
+&nbsp;&nbsp;&nbsp;&nbsp; **-ka** — KaHyPar (Linux, macOS, Windows) <br>
+&nbsp;&nbsp;&nbsp;&nbsp; **-cd** — Cara (Linux, macOS)
 
 Files: <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-i** - specifies the CNF file name
+&nbsp;&nbsp;&nbsp;&nbsp; **-i** — specifies the CNF file name
 
 Preprocessing types of Cara caching scheme: <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-n** - none *(default)* <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-ndc** - removes duplicate clauses <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-nsc** - removes clauses subsumed by others
+&nbsp;&nbsp;&nbsp;&nbsp; **-n** — none *(default)* <br>
+&nbsp;&nbsp;&nbsp;&nbsp; **-ndc** — removes duplicate clauses <br>
+&nbsp;&nbsp;&nbsp;&nbsp; **-nsc** — removes clauses subsumed by others
 
-**-nsm** - sets the number of sample moments *(min: 0, max: 10)*
+**-nsm** — sets the number of sample moments *(min: 0, max: 10)* <br>
+**-mmbf** — multiplies the model count by this factor (for example, <a href="https://github.com/meelgroup/arjun" target="_blank">Arjun's</a> "MUST MULTIPLY BY" factor) *(default: 1)*
 
 ### Syntax of output
 
