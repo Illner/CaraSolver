@@ -1,6 +1,6 @@
 # Cara
 
-A #SAT solver.
+An isomorphism-aware #SAT solver
 
 **Supported OS**: Linux, macOS (Intel and Apple Silicon), Windows
 
