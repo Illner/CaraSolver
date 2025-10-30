@@ -7,6 +7,16 @@ An isomorphism-aware #SAT solver
 > [!NOTE]
 > A knowledge compiler that uses the same core to compile CNF formulae into wDNNF, pwDNNF, nwDNNF and (smooth) decision-DNNF circuits can be found <a href="https://github.com/Illner/BellaCompiler" target="_blank">here</a>.
 
+## 🏆 Competition Results
+
+In its debut at the **<a href="https://mccompetition.org/assets/files/2025/mccomp_results_25.pdf" target="_blank">Model Counting Competition 2025</a> (MCC 2025)**, Cara achieved:
+
+* **2nd Place** (Track 1, Exact Model Counting)
+* **Best Newcomer Award**
+
+To the best of our knowledge, Cara is the **first isomorphism-aware #SAT solver** to ever participate in the MCC. Significantly, these results were achieved with isomorphism-aware caching enabled. This demonstrates Cara's high competitiveness despite
+the inherent overhead of this technique, which can be time-consuming on non-symmetric or less symmetric instances.
+
 ## Running Cara
 
 To run the #SAT solver:
