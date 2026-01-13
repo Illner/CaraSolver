@@ -2,10 +2,13 @@
 
 An isomorphism-aware #SAT solver
 
-**Supported OS**: Linux, macOS (Intel and Apple Silicon), Windows
+**Supported OS**: Linux, macOS (Intel & Apple Silicon), Windows
+
+> [!IMPORTANT]
+> The source code is available in the <a href="https://github.com/Illner/Hydra" target="_blank">Hydra repository</a>.
 
 > [!NOTE]
-> A knowledge compiler that uses the same core to compile CNF formulae into wDNNF, pwDNNF, nwDNNF and (smooth) decision-DNNF circuits can be found <a href="https://github.com/Illner/BellaCompiler" target="_blank">here</a>.
+> **Bella**, a knowledge compiler for wDNNF, pwDNNF, nwDNNF and (smooth) decision-DNNF circuits using the same core, is available in the <a href="https://github.com/Illner/BellaCompiler" target="_blank">BellaCompiler repository</a>.
 
 ## 🏆 Competition Results
 
@@ -83,7 +86,7 @@ The output follows the format defined by <a href="https://mccompetition.org/asse
 
 * <a href="https://github.com/crillab/d4v2" target="_blank"> MiniSat 2.2.0 (d4 version) </a>
 * <a href="https://github.com/niklasso/minisat" target="_blank"> MiniSat 2.2.0 </a> (<i>implemented, not used</i>)
-* <a href="https://github.com/arminbiere/cadical" target="_blank"> CaDiCaL 2.1.3 </a> (<i>TBD</i>)
+* <a href="https://github.com/arminbiere/cadical" target="_blank"> CaDiCaL 3.0.0 </a> (TBD)
 
 ### Hash map
 
