@@ -44,9 +44,9 @@ To run the #SAT solver:
 ### Configurations
 
 Partitioning hypergraph types: <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-ph** — PaToH (Linux, macOS), hMETIS (Windows) <br>
+&nbsp;&nbsp;&nbsp;&nbsp; **-ph** — PaToH (Linux, macOS), hMETIS (Windows) *(**recommended**)*<br>
 &nbsp;&nbsp;&nbsp;&nbsp; **-ka** — KaHyPar (Linux, macOS, Windows) <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-cd** — Cara (Linux, macOS)
+&nbsp;&nbsp;&nbsp;&nbsp; **-cd** — Cara (Linux, macOS) *(MCC 2025 submission configuration)*
 
 Files: <br>
 &nbsp;&nbsp;&nbsp;&nbsp; **-i** — specifies the CNF file name
