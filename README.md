@@ -56,6 +56,7 @@ Preprocessing types of Cara caching scheme: <br>
 &nbsp;&nbsp;&nbsp;&nbsp; **-ndc** — removes duplicate clauses <br>
 &nbsp;&nbsp;&nbsp;&nbsp; **-nsc** — removes clauses subsumed by others
 
+**-h** — help <br>
 **-v** — print version information <br>
 **-nsm** — sets the number of sample moments *(min: 0, max: 10)* <br>
 **-mmbf** — multiplies the model count by this factor (for example, <a href="https://github.com/meelgroup/arjun" target="_blank">Arjun's</a> "MUST MULTIPLY BY" factor) *(default: 1)*
