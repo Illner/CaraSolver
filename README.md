@@ -29,6 +29,10 @@ To run the #SAT solver:
 ```
 
 ```console
+./Cara -v
+```
+
+```console
 ./Cara < -ph | -ka | -cd > -i input_file -nsm integer (min: 0, max: 10) 
        [ -mmbf positive_integer (default: 1) ] [ -n | -ndc | -nsc ]
 ```
@@ -52,6 +56,7 @@ Preprocessing types of Cara caching scheme: <br>
 &nbsp;&nbsp;&nbsp;&nbsp; **-ndc** — removes duplicate clauses <br>
 &nbsp;&nbsp;&nbsp;&nbsp; **-nsc** — removes clauses subsumed by others
 
+**-v** — print version information <br>
 **-nsm** — sets the number of sample moments *(min: 0, max: 10)* <br>
 **-mmbf** — multiplies the model count by this factor (for example, <a href="https://github.com/meelgroup/arjun" target="_blank">Arjun's</a> "MUST MULTIPLY BY" factor) *(default: 1)*
 
