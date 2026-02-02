@@ -12,7 +12,7 @@ An isomorphism-aware #SAT solver
 
 ## 🏆 Competition Results
 
-In its debut at the **<a href="https://mccompetition.org/assets/files/2025/mccomp_results_25.pdf" target="_blank">Model Counting Competition 2025</a> (MCC 2025)**, Cara achieved:
+In its debut at the **<a href="https://mccompetition.org/assets/files/2025/MC2025_awards.pdf" target="_blank">Model Counting Competition 2025</a> (MCC 2025)**, Cara achieved:
 
 * **2nd Place** (Track 1, Exact Model Counting)
 * **Best Newcomer Award**
