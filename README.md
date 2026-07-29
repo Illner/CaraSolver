@@ -1,40 +1,57 @@
 # Cara
 
-An isomorphism-aware #SAT solver
+An isomorphism-aware #SAT solver.
 
-**Supported OS**: Linux, macOS (Intel & Apple Silicon), Windows
+**Supported OS**: Linux, macOS (Apple Silicon), and Windows
 
 > [!IMPORTANT]
-> The source code is available in the <a href="https://github.com/Illner/Hydra" target="_blank">Hydra repository</a>.
+> The source code is available in the [Hydra repository](https://github.com/Illner/Hydra).
 
 > [!NOTE]
-> **Bella**, a knowledge compiler for wDNNF, pwDNNF, nwDNNF and (smooth) decision-DNNF circuits using the same core, is available in the <a href="https://github.com/Illner/BellaCompiler" target="_blank">BellaCompiler repository</a>.
+> **Bella**, a knowledge compiler for wDNNF, pwDNNF, nwDNNF, and (s)d-DNNF circuits using the same core, is available in the [BellaCompiler repository](https://github.com/Illner/BellaCompiler).
 
 ## 🏆 Competition Results
 
-In its debut at the **<a href="https://mccompetition.org/assets/files/2025/MC2025_awards.pdf" target="_blank">Model Counting Competition 2025</a> (MCC 2025)**, Cara achieved:
+In its debut at the **[Model Counting Competition 2025](https://mccompetition.org/assets/files/2025/MC2025_awards.pdf) (MCC-25)**, Cara achieved:
 
 * **2nd Place** (Track 1, Exact Model Counting)
 * **Best Newcomer Award**
 
-To the best of our knowledge, Cara is the **first isomorphism-aware #SAT solver** to ever participate in the MCC. Significantly, these results were achieved with isomorphism-aware caching enabled. This demonstrates Cara's high competitiveness despite
-the inherent overhead of this technique, which can be time-consuming on non-symmetric or less symmetric instances.
+To the best of our knowledge, Cara is the **first isomorphism-aware #SAT solver** ever to participate in the MCC. Significantly, these results were achieved with isomorphism-aware caching enabled. This demonstrates that Cara remains competitive despite the overhead of this technique, which can be time-consuming on non-symmetric or less symmetric instances.
 
 ## Running Cara
 
-To run the #SAT solver:
+To print the help:
 
 ```console
 ./Cara -h
 ```
 
+To print the version:
+
 ```console
 ./Cara -v
 ```
 
+To run the #SAT solver:
+
 ```console
-./Cara < -ph | -ka | -cd > -i input_file -nsm integer (min: 0, max: 10) 
+./Cara < -ph | -ka | -cd > -i input_file -nsm integer (min: 0, max: 10)
        [ -mmbf positive_integer (default: 1) ] [ -n | -ndc | -nsc ]
+```
+
+### Recommended Usage
+
+On Linux and macOS:
+
+```console
+./Cara -ph -nsm 3 -i input_file
+```
+
+On Windows:
+
+```console
+./Cara -ka -nsm 3 -i input_file
 ```
 
 > [!TIP]
@@ -43,41 +60,46 @@ To run the #SAT solver:
 
 ### Configurations
 
-Partitioning hypergraph types: <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-ph** — PaToH (Linux, macOS), hMETIS (Windows) *(**recommended**)*<br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-ka** — KaHyPar (Linux, macOS, Windows) <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-cd** — Cara (Linux, macOS) *(MCC 2025 submission configuration)*
+Hypergraph partitioning:
+* **-ph** — PaToH (Linux and macOS), hMETIS (Windows) *(**recommended** on Linux and macOS)*
+* **-ka** — KaHyPar (Linux, macOS, and Windows) *(**recommended** on Windows)*
+* **-cd** — Cara (Linux and macOS) *(MCC-25 submission configuration)*
 
-Files: <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-i** — specifies the CNF file name
+Files:
+* **-i** — specify the CNF file name
 
-Preprocessing types of Cara caching scheme: <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-n** — none *(default)* <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-ndc** — removes duplicate clauses <br>
-&nbsp;&nbsp;&nbsp;&nbsp; **-nsc** — removes clauses subsumed by others
+Preprocessing types of Cara caching scheme:
+* **-n** — none *(default)*
+* **-ndc** — remove duplicate clauses
+* **-nsc** — remove clauses subsumed by others
 
-**-h** — help <br>
-**-v** — print version information <br>
-**-nsm** — sets the number of sample moments *(min: 0, max: 10)* <br>
-**-mmbf** — multiplies the model count by this factor (for example, <a href="https://github.com/meelgroup/arjun" target="_blank">Arjun's</a> "MUST MULTIPLY BY" factor) *(default: 1)*
+Other options:
+* **-h** — print the help message
+* **-v** — print version information
+* **-nsm** — set the number of sample moments *(min: 0, max: 10)*
+* **-mmbf** — multiply the model count by this factor (for example, when using a preprocessor such as [Arjun](https://github.com/meelgroup/arjun) that reports a multiplier) *(default: 1)*
 
-### Syntax of output
+### Syntax of Output
 
-The output follows the format defined by <a href="https://mccompetition.org/assets/files/mccomp_format_24.pdf" target="_blank">the model counting competition</a>.
+The output follows the format defined by [the model counting competition](https://mccompetition.org/assets/files/mccomp_format_24.pdf).
 
-## HydraTest
+## Tests
+
+Cara ships with two test binaries. Run both to verify a build.
+
+### HydraTest
 
 ```console
 ./HydraTest
 ```
 
 > [!WARNING]
-> Some tests for caching assume that the type "unsigned long long int" has precisely 64 bits.
+> Some tests for caching assume that the type `unsigned long long int` has precisely 64 bits.
 
 > [!NOTE]
 > The test takes around 10 seconds.
 
-## CaraTest
+### CaraTest
 
 ```console
 ./CaraTest
@@ -86,43 +108,54 @@ The output follows the format defined by <a href="https://mccompetition.org/asse
 > [!NOTE]
 > The test takes around 10 minutes.
 
-## Used software
+## Third-Party Software
 
-### SAT solver
+### SAT Solvers
 
-* <a href="https://github.com/crillab/d4v2" target="_blank"> MiniSat 2.2.0 (d4v2 version) </a>
-* <a href="https://github.com/niklasso/minisat" target="_blank"> MiniSat 2.2.0 </a> (<i>implemented, not used</i>)
-* <a href="https://github.com/arminbiere/cadical" target="_blank"> CaDiCaL 3.0.0 </a> (TBD)
+* [MiniSat 2.2.0 (d4v2 version)](https://github.com/crillab/d4v2)
 
-### Hash map
+* [Glucose 3.0 (d4v2 version)](https://github.com/crillab/d4v2) — _work in progress_
 
-* <a href="https://github.com/martinus/unordered_dense" target="_blank"> unordered_dense v4.5.0 </a>
-* <a href="https://github.com/martinus/robin-hood-hashing" target="_blank"> robin-hood-hashing 3.11.5 </a>
-* <a href="https://github.com/skarupke/flat_hash_map" target="_blank"> flat_hash_map </a> (<i>implemented, not used</i>)
+* [MiniSat 2.2.0](https://github.com/niklasso/minisat) — _implemented, not used_
 
-### Hypergraph partitioning
+* [CaDiCaL 3.0.0](https://github.com/arminbiere/cadical) — _work in progress_
 
-* <a href="https://faculty.cc.gatech.edu/~umit/software.html" target="_blank"> PaToH v3.3 </a> (<i>used for Linux, and macOS</i>)
-* <a href="http://glaros.dtc.umn.edu/gkhome/metis/hmetis/overview" target="_blank"> hMETIS 1.5.3 </a> (<i>used only for Windows</i>)
-* <a href="https://kahypar.org/" target="_blank"> KaHyPar v.1.3.3 </a>
+### Hash Maps
 
-### Other
+* [unordered_dense v4.5.0](https://github.com/martinus/unordered_dense)
 
-* <a href="https://www.boost.org/" target="_blank"> Boost </a>
+* [robin-hood-hashing 3.11.5](https://github.com/martinus/robin-hood-hashing)
+
+* [flat_hash_map](https://github.com/skarupke/flat_hash_map) — _implemented, not used_
+
+### Hypergraph Partitioning
+
+* [PaToH v3.3](https://faculty.cc.gatech.edu/~umit/software.html) — _used on Linux and macOS_
+
+* [hMETIS 1.5.3](https://papers.karypis.org/glaros/software/metis/overview.html) — _used only on Windows_
+
+* [KaHyPar v.1.3.3](https://kahypar.org/) — _used on Linux, macOS, and Windows_
+
+## Licence
+
+Cara is released under the [MIT License](LICENSE). The bundled third-party software components (see above) are subject to their own licences. Some of them are restricted to academic and research use. For the licences, see `Hydra/external/` in
+the [Hydra repository](https://github.com/Illner/Hydra).
 
 ## Papers
 
 If you use **Cara** in an academic setting, please cite the following paper, which describes the caching scheme on which Cara is based:
 
-    @article{Illner_2025, 
-        author  = {Illner, Petr}, 
-        title   = {New Compilation Languages Based on Restricted Weak Decomposability}, 
-        volume  = {39}, 
-        url     = {https://ojs.aaai.org/index.php/AAAI/article/view/33643}, 
-        DOI     = {10.1609/aaai.v39i14.33643}, 
-        number  = {14}, 
-        journal = {Proceedings of the AAAI Conference on Artificial Intelligence}, 
-        year    = {2025}, 
-        month   = {Apr.}, 
-        pages   = {14987-14996} 
-    }
+```bibtex
+@article{Illner_2025, 
+    author  = {Illner, Petr}, 
+    title   = {New Compilation Languages Based on Restricted Weak Decomposability}, 
+    volume  = {39}, 
+    url     = {https://ojs.aaai.org/index.php/AAAI/article/view/33643}, 
+    DOI     = {10.1609/aaai.v39i14.33643}, 
+    number  = {14}, 
+    journal = {Proceedings of the AAAI Conference on Artificial Intelligence}, 
+    year    = {2025}, 
+    month   = {Apr.}, 
+    pages   = {14987-14996} 
+}
+```
