@@ -36,8 +36,8 @@ To print the version:
 To run the #SAT solver:
 
 ```console
-./Cara < -ph | -ka | -cd > -i input_file -nsm integer (min: 0, max: 10)
-       [ -mmbf positive_integer (default: 1) ] [ -n | -ndc | -nsc ]
+./Cara < -ph | -ka | -cd | -cs > -i input_file -nsm integer (min: 0, max: 10)
+       [ -mmbf positive_integer (default: 1) ] [ -m | -g ] [ -n | -ndc | -nsc ]
 ```
 
 ### Recommended Usage
@@ -64,9 +64,14 @@ Hypergraph partitioning:
 * **-ph** — PaToH (Linux and macOS), hMETIS (Windows) *(**recommended** on Linux and macOS)*
 * **-ka** — KaHyPar (Linux, macOS, and Windows) *(**recommended** on Windows)*
 * **-cd** — Cara (Linux and macOS) *(MCC-25 submission configuration)*
+* **-cs** — Cara (speed) (Linux and macOS) *(MCC-26 submission configuration)*
 
 Files:
 * **-i** — specify the CNF file name
+
+SAT solvers:
+* **-m** — MiniSat *(default)*
+* **-g** — Glucose
 
 Preprocessing types of Cara caching scheme:
 * **-n** — none *(default)*
@@ -114,15 +119,17 @@ Cara ships with two test binaries. Run both to verify a build.
 
 * [MiniSat 2.2.0 (d4v2 version)](https://github.com/crillab/d4v2)
 
-* [Glucose 3.0 (d4v2 version)](https://github.com/crillab/d4v2) — _work in progress_
+* [Glucose 3.0 (d4v2 version)](https://github.com/crillab/d4v2)
 
 * [MiniSat 2.2.0](https://github.com/niklasso/minisat) — _implemented, not used_
+
+* [Glucose 4.2.1](https://github.com/audemard/glucose) — _work in progress_
 
 * [CaDiCaL 3.0.0](https://github.com/arminbiere/cadical) — _work in progress_
 
 ### Hash Maps
 
-* [unordered_dense v4.5.0](https://github.com/martinus/unordered_dense)
+* [unordered_dense v4.9.1](https://github.com/martinus/unordered_dense)
 
 * [robin-hood-hashing 3.11.5](https://github.com/martinus/robin-hood-hashing)
 
@@ -132,9 +139,13 @@ Cara ships with two test binaries. Run both to verify a build.
 
 * [PaToH v3.3](https://faculty.cc.gatech.edu/~umit/software.html) — _used on Linux and macOS_
 
-* [hMETIS 1.5.3](https://papers.karypis.org/glaros/software/metis/overview.html) — _used only on Windows_
+* [hMETIS 1.5.3](https://papers.karypis.org/glaros/software/metis/overview.html#hmetis---hypergraph--circuit-partitioning) — _used only on Windows_
 
 * [KaHyPar v.1.3.3](https://kahypar.org/) — _used on Linux, macOS, and Windows_
+
+### Unit Testing
+
+* [Catch2 v2.13.10](https://github.com/catchorg/Catch2)
 
 ## Licence
 
